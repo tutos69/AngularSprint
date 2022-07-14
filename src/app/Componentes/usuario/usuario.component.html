@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col">
+        <form (ngSubmit)="usuarioIniciar()">
+            <p class="fs-3">Usuario</p>
+            <div class="form-floating mb-3">
+
+                <input type="text" class="form-control" [(ngModel)]="user.usuario" id="usuario" name="usuario" placeholder="name@example.com">
+                <label for="floatingInput" >Usuario</label>
+            </div>
+            <p class="fs-3">Contraceña</p>
+            <div class="form-floating">
+
+                <input type="password" class="form-control" [(ngModel)]="user.contrasenia" id="contrasenia" name="contrasenia" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword" >Contraseña</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+           
+        </form>
+        <button type="button" routerLink="/registrarse"  class="btn btn-secondary">Registrarse</button>
+    </div>
+
+    <div class="col">
+
+    </div>
+</div>
