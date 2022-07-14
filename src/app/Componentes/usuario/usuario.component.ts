@@ -21,7 +21,8 @@ export class UsuarioComponent implements OnInit {
     console.log(this.user)
     this.usuarioService.login(this.user).subscribe(
       data => {
-        alert("Iniciaste Sesion")
+        alert("Bienvenido")
+        this.ruta.navigate(['/inicio'])
       }, error => alert("Esta Mal el Usuario o Contraseña"))
   }
 

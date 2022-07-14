@@ -7,12 +7,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 import { RegistrarseComponent } from './Componentes/registrarse/registrarse.component';
+import { SucursalesComponent } from './Componentes/sucursales/sucursales.component';
+import { InicioComponent } from './Componentes/inicio/inicio.component';
+import { ProductoComponent } from './Componentes/producto/producto.component';
+import { ListaProductoComponent } from './Componentes/lista-producto/lista-producto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
-    RegistrarseComponent
+    RegistrarseComponent,
+    SucursalesComponent,
+    InicioComponent,
+    ProductoComponent,
+    ListaProductoComponent
   ],
   imports: [
     BrowserModule,
