@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Clases/Usuario/usuario';
-import { LoginService } from 'src/app/Servicio/Usuario/login.service';
+import { LoginService } from 'src/app/Servicio/Login/login.service';
 
 @Component({
   selector: 'app-usuario',
@@ -11,6 +11,7 @@ import { LoginService } from 'src/app/Servicio/Usuario/login.service';
 export class UsuarioComponent implements OnInit {
 
   user: Usuario = new Usuario();
+ 
   constructor(private usuarioService: LoginService, private ruta: Router) { }
 
   ngOnInit(): void {
@@ -23,6 +24,7 @@ export class UsuarioComponent implements OnInit {
       data => {
         sessionStorage.setItem("Usuario",this.user.usuario);
         alert("Bienvenido")
+        console.log(sessionStorage.getItem("Usuario"));
         this.ruta.navigate(['FS'])
       }, error => alert("Esta Mal el Usuario o Contraseña"))
   }

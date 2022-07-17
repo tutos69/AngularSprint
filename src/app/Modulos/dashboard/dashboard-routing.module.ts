@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Usuario } from 'src/app/Clases/Usuario/usuario';
 
 import { ListaProductoComponent } from 'src/app/Componentes/lista-producto/lista-producto.component';
 import { ProductoComponent } from 'src/app/Componentes/producto/producto.component';
 import { PruebaComponent } from 'src/app/Componentes/prueba/prueba.component';
 import { SucursalesComponent } from 'src/app/Componentes/sucursales/sucursales.component';
+import { UsuarioComponent } from 'src/app/Componentes/usuario/usuario.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
   {path: '', component:DashboardComponent, children: [
+    { path: '', component:UsuarioComponent  },
     { path: 'sucursales', component:SucursalesComponent},
     { path: 'products',children: [
       {path: ':nombreClave',component:ProductoComponent},
