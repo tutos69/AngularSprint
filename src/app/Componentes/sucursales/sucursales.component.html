@@ -1,9 +1,18 @@
-
-<a href="/productos/{{datosEntrantes?.nombreClave}}"  class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{datosEntrantes?.nombreClave}}</h5>
-        <small class="text-muted">{{datosEntrantes?.telefono}}</small>
-    </div>
-    <p class="mb-1">{{datosEntrantes?.direccion}}</p>
-    <small class="text-muted">{{datosEntrantes?.id}}</small>
-</a>
+<div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+   <div class="col  ">
+       
+   </div>
+   <div class="col  ">
+    <a href="FS/products/{{sucursal.nombreClave}}" *ngFor="let sucursal of lisSucursales"class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1" >{{sucursal.nombreClave}}</h5>
+            <small class="text-muted">{{sucursal.telefono}}</small>
+        </div>
+        <p class="mb-1">{{sucursal.direccion}}</p>
+        <small class="text-muted">{{sucursal.id}}</small>
+    </a>
+</div>
+<div class="col  ">
+       
+</div>
+</div>

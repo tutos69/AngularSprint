@@ -1,0 +1,22 @@
+
+<div class="login-box">
+    <h2>Login</h2>
+    <form (ngSubmit)="usuarioIniciar()">
+      <div class="user-box">
+        <input type="text" [(ngModel)]="user.usuario"  name="usuario" id="usuario" required="">
+        <label>Username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" [(ngModel)]="user.contrasenia" name="contrasenia" id="contrasenia" required="">
+        <label>Password</label>
+      </div>
+    
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        <button type="submit"  class="btn btn-primary">Iniciar Sesion</button>
+        <button type="button" routerLink="/registrarse"  class="btn btn-secondary">Registrarse</button>
+    </form>
+  </div>

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from './Componentes/inicio/inicio.component';
-import { ProductoComponent } from './Componentes/producto/producto.component';
 import { RegistrarseComponent } from './Componentes/registrarse/registrarse.component';
-import { SucursalesComponent } from './Componentes/sucursales/sucursales.component';
-import { UsuarioComponent } from './Componentes/usuario/usuario.component';
+import { UsuarioComponent } from './Componentes/Login/usuario.component';
+
 
 const routes: Routes = [
-  {path: '', component:UsuarioComponent},
+  {path: '', redirectTo: 'login', pathMatch:'full'},
+  {path: 'login', component:UsuarioComponent},
   {path: 'registrarse', component:RegistrarseComponent},
-  {path: 'inicio', component:InicioComponent},
-  {path: 'productos/:nombreClave', component:ProductoComponent}
+  {path: 'FS', loadChildren:() => import('./Modulos/dashboard/dashboard.module').then(x=>x.DashboardModule)},
+  {path: '**', redirectTo: 'login', pathMatch:'full'},
+  
 ];
 
 @NgModule({

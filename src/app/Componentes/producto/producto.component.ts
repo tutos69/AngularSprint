@@ -10,16 +10,20 @@ import { ProductosService } from 'src/app/Servicio/Productos/productos.service';
 export class ProductoComponent implements OnInit {
 
   public lisProductos:any = [];
+  public listaCategoria:any = [];
+  nombreSucursal:any = '';
+  
+ 
   constructor(private route:ActivatedRoute, private producto: ProductosService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramsMAP:any) => { 
       const {params} = paramsMAP;
+      this.nombreSucursal=params.nombreClave;
       this.cargarListaSucursales(params.nombreClave)
     });
-   
+   this.cargarCategorias();
   }
-
 
   public cargarListaSucursales(nombre:String){
     this.producto.ListaProductos(`http://localhost:8080/producto/${nombre}`).subscribe(
@@ -27,5 +31,13 @@ export class ProductoComponent implements OnInit {
         this.lisProductos=data;
   
       },)
+  }
+
+  public cargarCategorias() {
+    this.producto.ListaCategorias(`http://localhost:8080/categoria`).subscribe(
+      data => {
+        this.listaCategoria = data;
+
+      })
   }
 }

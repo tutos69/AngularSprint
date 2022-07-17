@@ -1,16 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SucursalesService {
+export class PruebaService {
 
   constructor(private httpClient: HttpClient) { }
-  
   listSucursales(url: string){
     return this.httpClient.get(url);
   }
-  
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Sucursales } from 'src/app/Clases/Sucursales/sucursales';
+import { SucursalesService } from 'src/app/Servicio/Sucursales/sucursales.service';
 
 
 @Component({
@@ -8,14 +10,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SucursalesComponent implements OnInit {
 
-  @Input() datosEntrantes: any;
-
-  constructor() { }
+  public lisSucursales:any = [];  
+  constructor(private _sucursalesService: SucursalesService) { }
 
   ngOnInit(): void {
-   
+    this.cargarListaSucursales();
+    
   }
 
-
+  public cargarListaSucursales(){
+    this._sucursalesService.listSucursales("http://localhost:8080/sucursales").subscribe(
+      data => {
+        this.lisSucursales=data;
+      },)
+  }
 
 }
