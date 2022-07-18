@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CarritoDetalle } from 'src/app/Clases/CarritoDetalle/carritoDetalle';
 import { ProductosService } from 'src/app/Servicio/Productos/productos.service';
 
 @Component({
@@ -11,9 +12,11 @@ export class ProductoComponent implements OnInit {
 
   public lisProductos:any = [];
   public listaCategoria:any = [];
+  public listaProductosCarrito:any = [];
   nombreSucursal:any = '';
   
- 
+  carrito:CarritoDetalle = new CarritoDetalle();
+  nombre:String="";
   constructor(private route:ActivatedRoute, private producto: ProductosService) { }
 
   ngOnInit(): void {
@@ -40,4 +43,12 @@ export class ProductoComponent implements OnInit {
 
       })
   }
+  cargarProductos() {
+   // this.producto.ListaCategorias(`http://localhost:8080/carrito/agregarProducto`).subscribe(
+    //  data => {
+       // this.listaProductosCarrito = data;
+    console.log (this.carrito);
+   //   })
+  }
+
 }

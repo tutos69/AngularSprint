@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: 'sucursales', component:SucursalesComponent},
     { path: 'pago', component:PagoComponent},
     { path: 'listPago', component:ListaPagosComponent},
-    { path: 'carritoDetalle', component:CarritoDetalleComponent},
+    { path: 'carritosDetalles', component:CarritoDetalleComponent},
     { path: 'products',children: [
       {path: ':nombreClave',component:ProductoComponent},
       {path: ':nombreClave/:nombre', component:ListaProductoComponent}

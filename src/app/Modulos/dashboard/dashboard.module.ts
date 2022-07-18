@@ -23,8 +23,9 @@ import { CarritoDetalleComponent } from 'src/app/Componentes/carrito-detalle/car
     ListaProductoComponent,
     MenuComponent,
     PruebaComponent,
-    CarritoDetalleComponent,
-    ListaPagosComponent
+    ListaPagosComponent,
+    CarritoDetalleComponent
+
   ],
   imports: [
     CommonModule,
