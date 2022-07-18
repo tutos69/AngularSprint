@@ -1,0 +1,23 @@
+<div class="login-box">
+    <h2>Pago</h2>
+    <form (ngSubmit)="crearPago()">
+        <a href="/FS/pago" *ngFor="let pago" class="list-group-item list-group-item-action"></a>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="tiposPago" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let pg of FormasPago" >{{pg}}</option>
+        </select>
+{{tiposPago}}
+        <div class="user-box">
+            <input type="text" [(ngModel)]="pagos.nombreTitular" name="nombreTitular" id="nombreTitular" required="">
+            <label>Nombre del Titular</label>
+        </div>
+        <div class="user-box">
+            <input type="text" [(ngModel)]="pagos.numeroTarjeta" name="numeroTarjeta" id="numeroTarjeta" required="">
+            <label>Numero de Tarjeta</label>
+        </div>
+        <div class="user-box">
+            <input type="number" [(ngModel)]="pagos.meses" name="meses" id="meses" required="">
+            <label>Meses</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>

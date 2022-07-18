@@ -1,0 +1,24 @@
+
+<div class="credit-card-wrap">
+	<div class="mk-icon-world-map"></div>
+	<div class="credit-card-inner">
+		<header class="header">
+			<div class="credit-logo">
+				<div class="shape"><span class="txt">PB</span></div> <span class="text">Farma Sama</span>
+			</div>
+		</header>
+		<div class="mk-icon-sim"></div>
+		<div class="credit-font credit-card-number" data-text="001" *ngFor="let model of listaPagos">{{model.numeroTarjeta}}</div>
+		<footer class="footer">
+			<div class="clearfix">
+				<div class="pull-left">
+					<div class="credit-card-date"><span class="title">Tipo de Tarjeta</span><span class="credit-font" *ngFor="let model of listaPagos">{{model.tipoPago}}</span></div>
+					<div class="credit-font credit-author" *ngFor="let model of listaPagos">{{model.nombreTitular}}</div>
+				</div>
+				<div class="pull-right">
+					<div class="mk-icon-visa"></div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>

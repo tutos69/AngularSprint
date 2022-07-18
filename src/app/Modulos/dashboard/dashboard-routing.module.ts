@@ -6,13 +6,17 @@ import { ListaProductoComponent } from 'src/app/Componentes/lista-producto/lista
 import { ProductoComponent } from 'src/app/Componentes/producto/producto.component';
 import { PruebaComponent } from 'src/app/Componentes/prueba/prueba.component';
 import { SucursalesComponent } from 'src/app/Componentes/sucursales/sucursales.component';
+import { PagoComponent } from 'src/app/Componentes/pago/pago.component';
 import { UsuarioComponent } from 'src/app/Componentes/usuario/usuario.component';
 import { DashboardComponent } from './dashboard.component';
+import { ListaPagosComponent } from 'src/app/Componentes/lista-pagos/lista-pagos.component';
 
 const routes: Routes = [
   {path: '', component:DashboardComponent, children: [
     { path: '', component:UsuarioComponent  },
     { path: 'sucursales', component:SucursalesComponent},
+    { path: 'pago', component:PagoComponent},
+    { path: 'listPago', component:ListaPagosComponent},
     { path: 'products',children: [
       {path: ':nombreClave',component:ProductoComponent},
       {path: ':nombreClave/:nombre', component:ListaProductoComponent}

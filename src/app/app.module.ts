@@ -6,8 +6,7 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './Componentes/Login/usuario.component';
 import { RegistrarseComponent } from './Componentes/registrarse/registrarse.component';
 import { SharedModule } from './Modulos/shared/shared.module';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -21,7 +20,8 @@ import { SharedModule } from './Modulos/shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],
