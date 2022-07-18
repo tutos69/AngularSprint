@@ -11,6 +11,7 @@ import { ListaProductoComponent } from 'src/app/Componentes/lista-producto/lista
 import { MenuComponent } from 'src/app/Componentes/menu/menu.component';
 import { PruebaComponent } from 'src/app/Componentes/prueba/prueba.component';
 import { ListaPagosComponent } from 'src/app/Componentes/lista-pagos/lista-pagos.component';
+import { CarritoDetalleComponent } from 'src/app/Componentes/carrito-detalle/carrito-detalle.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ListaPagosComponent } from 'src/app/Componentes/lista-pagos/lista-pagos
     ListaProductoComponent,
     MenuComponent,
     PruebaComponent,
+    CarritoDetalleComponent,
     ListaPagosComponent
   ],
   imports: [
