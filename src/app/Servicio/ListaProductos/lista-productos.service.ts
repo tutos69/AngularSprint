@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ListaProductosService {
 
-  constructor(private httpClient: HttpClient ) {}
+  constructor(private httpClient: HttpClient) {}
   ListaProductosCategorias(url: string){
     return this.httpClient.get(url);
   }
