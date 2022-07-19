@@ -6,8 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class ListaPagoService {
 
-  constructor(private httpClient: HttpClient ) {}
-  ListaPago(url: string){
+  constructor(private httpClient: HttpClient) { }
+  ListaPago(url: string) {
+    return this.httpClient.get(url);
+  }
+  enviarPedido(url: string) {
     return this.httpClient.get(url);
   }
 }

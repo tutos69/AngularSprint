@@ -1,0 +1,36 @@
+
+<div class="row ">
+    <div class="col-2 ">
+        
+    </div>
+    <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Numero Pedido</th>
+                    <th>Estado</th>
+                    <th>Costo</th>
+                    <th>Tiempo</th>
+                    <th>Distancia</th>
+                    <th>Total</th>
+                    <th>Cancelar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{pedidoActual.id}}</td>
+                    <td>{{pedidoActual.estado}}</td>
+                    <td>{{pedidoActual.tiempoEspera}}</td>
+                    <td>{{pedidoActual.costoEnvio}}</td>
+                    <td>{{pedidoActual.direccion}}</td>
+                    <td>{{pedidoActual.total}}</td>
+                    <td><button type="button" (click)="Cancelar()" class="btn btn-warning">Cancelar Pedido</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+    <div class="col-2 ">
+        
+    </div>
+</div>

@@ -12,6 +12,8 @@ import { MenuComponent } from 'src/app/Componentes/menu/menu.component';
 import { PruebaComponent } from 'src/app/Componentes/prueba/prueba.component';
 import { ListaPagosComponent } from 'src/app/Componentes/lista-pagos/lista-pagos.component';
 import { CarritoDetalleComponent } from 'src/app/Componentes/carrito-detalle/carrito-detalle.component';
+import { PedidoActualComponent } from 'src/app/Componentes/pedido-actual/pedido-actual.component';
+import { ListarPedidoComponent } from 'src/app/Componentes/listar-pedido/listar-pedido.component';
 
 
 @NgModule({
@@ -24,8 +26,8 @@ import { CarritoDetalleComponent } from 'src/app/Componentes/carrito-detalle/car
     MenuComponent,
     PruebaComponent,
     ListaPagosComponent,
-    CarritoDetalleComponent
-
+    CarritoDetalleComponent,
+    PedidoActualComponent,ListarPedidoComponent,
   ],
   imports: [
     CommonModule,
