@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ListaPagoService } from 'src/app/Servicio/ListaPagos/lista-pago.services';
 
 @Component({
@@ -8,7 +9,7 @@ import { ListaPagoService } from 'src/app/Servicio/ListaPagos/lista-pago.service
 })
 export class ListaPagosComponent implements OnInit {
 
-  constructor(private listPago:ListaPagoService) { }
+  constructor(private listPago:ListaPagoService,private ruta: Router) { }
 
   public listaPagos: any = [];
   public usu: any ="";
@@ -25,4 +26,10 @@ export class ListaPagosComponent implements OnInit {
       },error=>alert("No valesd"))
   }
 
+  public atras(){
+    this.ruta.navigate(['FS/carritosDetalles'])
+  }
+  public siguiente(){
+    this.ruta.navigate(['FS/pedido'])
+  }
 }

@@ -11,6 +11,7 @@ import { UsuarioComponent } from 'src/app/Componentes/usuario/usuario.component'
 import { DashboardComponent } from './dashboard.component';
 import { ListaPagosComponent } from 'src/app/Componentes/lista-pagos/lista-pagos.component';
 import { CarritoDetalleComponent } from 'src/app/Componentes/carrito-detalle/carrito-detalle.component';
+import { PedidosComponent } from 'src/app/Componentes/pedidos/pedidos.component';
 
 const routes: Routes = [
   {path: '', component:DashboardComponent, children: [
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: 'pago', component:PagoComponent},
     { path: 'listPago', component:ListaPagosComponent},
     { path: 'carritosDetalles', component:CarritoDetalleComponent},
+    { path: 'pedido', component:PedidosComponent},
     { path: 'products',children: [
       {path: ':nombreClave',component:ProductoComponent},
       {path: ':nombreClave/:nombre', component:ListaProductoComponent}

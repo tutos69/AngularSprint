@@ -53,7 +53,7 @@ export class ProductoComponent implements OnInit {
     this.carrito.sucursal=Producto.sucursal.nombreClave
     this.productoService.agregarCarrito(this.carrito).subscribe(
       data => {
-        console.log(data);
+        alert("Producto Agregado al Carrito")
       }, error => alert("Datos para el pago mal ingresados"))
   }
 

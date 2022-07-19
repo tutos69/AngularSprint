@@ -10,4 +10,10 @@ export class ListCarritoService {
   ListarCarrito(url: string){
     return this.httpClient.get(url);
   }
+  LimpiarCarrito(url: string){
+    return this.httpClient.get(url);
+  }
+  total(url: string){
+    return this.httpClient.get(url);
+  }
 }
