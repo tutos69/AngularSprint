@@ -13,9 +13,11 @@ export class ListaPagosComponent implements OnInit {
 
   public listaPagos: any = [];
   public usu: any ="";
+  public lon: any ="";
+  public lat: any ="";
   ngOnInit(): void {
     this.usu = sessionStorage.getItem("Usuario");
-   
+    
     this.pagosLista(this.usu);
   }
   public pagosLista(usuario: string){
@@ -32,11 +34,16 @@ export class ListaPagosComponent implements OnInit {
 
   public siguiente(){
     this.usu = sessionStorage.getItem("Usuario");
-    this.envirarPedido(this.usu);
+    this.lat = localStorage.getItem("Latitude");
+    this.lon = localStorage.getItem("Logitud");
+    console.log(this.lat) 
+    this.envirarPedido(this.usu,this.lon,this.lat);
   }
 
-  public envirarPedido(usuario: string){
-    this.listPago.ListaPago(`http://localhost:8080/pedido/enviar/${usuario}`).subscribe(
+ 
+
+  public envirarPedido(usuario: string,long:number,lat:number){
+    this.listPago.ListaPago(`http://localhost:8080/pedido/enviar/${usuario}/${long}/${lat}`).subscribe(
       data => {
       
         this.ruta.navigate(['FS/pedido'])

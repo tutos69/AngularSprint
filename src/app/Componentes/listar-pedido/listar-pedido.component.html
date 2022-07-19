@@ -10,8 +10,8 @@
                 <th>Numero Pedido</th>
                     <th>Estado</th>
                     <th>Costo</th>
-                    <th>Tiempo</th>
-                    <th>Distancia</th>
+                   
+                    <th>Ubicacion</th>
                     <th>Total</th>
               </tr>
             </thead>
@@ -19,10 +19,10 @@
               <tr *ngFor="let el of todosPedidosa">
                 <td>{{el.id}}</td>
                     <td>{{el.estado}}</td>
-                    <td>{{el.tiempoEspera}}</td>
+                   
                     <td>{{el.costoEnvio}}</td>
                     <td>{{el.direccion}}</td>
-                    <td>{{el.total}}</td>
+                    <td>$ {{el.total}}</td>
               </tr>
               
             </tbody>

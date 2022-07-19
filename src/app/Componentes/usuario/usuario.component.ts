@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/Servicio/Usuario/usuario.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UsuarioService } from 'src/app/Servicio/Usuario/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
 
-  constructor(private _usu:UsuarioService) { }
+  constructor(private _usu:UsuarioService, private ruta: Router) { }
   public Usuarios:any = [];  
   public usu: any ="";
   ngOnInit(): void {
@@ -21,6 +22,13 @@ export class UsuarioComponent implements OnInit {
       data => {
         this.Usuarios=data;
       },)
+  }
+
+  public comprar(){
+    this.ruta.navigate(['FS/sucursales']);
+  }
+  public MisPedidos(){
+    this.ruta.navigate(['FS/listPedido']);
   }
 
 }
