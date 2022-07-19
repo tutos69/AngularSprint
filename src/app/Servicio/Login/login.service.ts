@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class LoginService {
   
   constructor(private httpClient: HttpClient) {}
+  
   login(usuario:Usuario):Observable<object>{
     return this.httpClient.post("http://localhost:8080/usuario/iniciarSesion",usuario);
   }

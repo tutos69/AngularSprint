@@ -13,17 +13,13 @@ export class PagoComponent implements OnInit {
     'TARJETA_DEBITO',
     'TARJETA_CREDITO'
   ]
-
   tiposPago: String = '';
-
   usuarios: any = "";
-
   pagos: Pago = new Pago();
   constructor(private pago: PagoService) { }
 
   ngOnInit(): void {
     this.usuarios = sessionStorage.getItem("Usuario");
-    console.log(this.usuarios);
   }
 
 

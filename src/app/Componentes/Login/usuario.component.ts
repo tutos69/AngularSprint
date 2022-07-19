@@ -24,7 +24,7 @@ export class UsuarioComponent implements OnInit {
       data => {
         sessionStorage.setItem("Usuario",this.user.usuario);
         alert("Bienvenido")
-        console.log(sessionStorage.getItem("Usuario"));
+        
         this.ruta.navigate(['FS'])
       }, error => alert("Esta Mal el Usuario o Contraseña"))
   }
