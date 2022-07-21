@@ -1,4 +1,3 @@
-
 <div class="credit-card-wrap">
 	<div class="mk-icon-world-map"></div>
 	<div class="credit-card-inner">
@@ -8,19 +7,22 @@
 			</div>
 		</header>
 		<div class="mk-icon-sim"></div>
-		<div class="credit-font credit-card-number" data-text="001" *ngFor="let model of listaPagos">{{model.numeroTarjeta}}</div>
+		<div class="credit-font credit-card-number" data-text="001" *ngFor="let model of listaPagos">
+			{{model.numeroTarjeta}}</div>
 		<footer class="footer">
 			<div class="clearfix">
 				<div class="pull-left">
-					<div class="credit-card-date"><span class="title">Tipo de Tarjeta</span><span class="credit-font" *ngFor="let model of listaPagos">{{model.tipoPago}}</span></div>
-					<div class="credit-font credit-author" *ngFor="let model of listaPagos">{{model.nombreTitular}}</div>
+					<div class="credit-card-date"><span class="title">Tipo de Tarjeta</span><span class="credit-font"
+							*ngFor="let model of listaPagos">{{model.tipoPago}}</span></div>
+					<div class="credit-font credit-author" *ngFor="let model of listaPagos">{{model.nombreTitular}}
+					</div>
 				</div>
 				<div class="pull-right">
 					<div class="mk-icon-visa"></div>
 				</div>
 			</div>
 		</footer>
-		
+
 	</div>
 	<div>
 		<div class="row ">
@@ -28,14 +30,14 @@
 				<button type="button" (click)="atras()" class="btn btn-warning">Atras</button>
 			</div>
 			<div class="col">
-				
+
 			</div>
 			<div class="col  ">
 				<button type="button" (click)="siguiente()" class="btn btn-success">Siguiente</button>
 			</div>
 		</div>
-		
-		
-		
+
+
+
 	</div>
 </div>

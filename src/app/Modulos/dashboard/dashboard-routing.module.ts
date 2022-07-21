@@ -12,11 +12,13 @@ import { ListaPagosComponent } from 'src/app/Componentes/lista-pagos/lista-pagos
 import { CarritoDetalleComponent } from 'src/app/Componentes/carrito-detalle/carrito-detalle.component';
 import { PedidoActualComponent } from 'src/app/Componentes/pedido-actual/pedido-actual.component';
 import { ListarPedidoComponent } from 'src/app/Componentes/listar-pedido/listar-pedido.component';
+import { InicioComponent } from 'src/app/Componentes/inicio/inicio.component';
 
 
 const routes: Routes = [
   {path: '', component:DashboardComponent, children: [
-    { path: '', component:UsuarioComponent  },
+    { path: '', component:InicioComponent },
+    { path: 'usuario', component:UsuarioComponent  },
     { path: 'pedido', component:PedidoActualComponent},
     { path: 'listPedido', component:ListarPedidoComponent},
     { path: 'sucursales', component:SucursalesComponent},
