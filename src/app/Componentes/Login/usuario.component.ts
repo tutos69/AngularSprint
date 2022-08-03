@@ -16,7 +16,7 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit(): void {
    
-    this.link = "http://localhost:8080/";
+    this.link = "http://localhost:7070/";
     sessionStorage.setItem("Link",this.link);
   }
 
