@@ -2,4 +2,3 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/rkpvfpzd/public_html/
     - /bin/rsync -av src/ $DEPLOYPATH
-    - 
