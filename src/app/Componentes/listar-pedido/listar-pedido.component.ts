@@ -10,16 +10,18 @@ export class ListarPedidoComponent implements OnInit {
 
   public todosPedidosa:any = [];
   public usu: any ="";
+  link: any = "";
   constructor(private todoPedido: PedidosService) { }
 
   ngOnInit(): void {
     this.usu = sessionStorage.getItem("Usuario");
-    this.todosPedidos(this.usu)
+    this.link= sessionStorage.getItem("Link");
+    this.todosPedidos(this.usu,this.link)
   }
 
 
-  public todosPedidos(usu:String) {
-    this.todoPedido.ListasPedidos(`http://localhost:8080/pedidos/${usu}`).subscribe(
+  public todosPedidos(usu:String,link:string) {
+    this.todoPedido.ListasPedidos(`${link}pedidos/${usu}`).subscribe(
       data => {
         this.todosPedidosa = data;
       },error => alert("No vale"))

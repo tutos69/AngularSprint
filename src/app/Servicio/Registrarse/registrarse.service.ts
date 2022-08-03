@@ -10,7 +10,7 @@ export class RegistrarseService {
 
   constructor(private httpClient: HttpClient) { }
 
-  crearUsu(registro:Registrarse):Observable<object>{
-    return this.httpClient.post("http://localhost:8080/usuario/create",registro);
+  crearUsu(registro:Registrarse,link:string):Observable<object>{
+    return this.httpClient.post(link+"usuario/create",registro);
   }
 }

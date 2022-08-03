@@ -8,17 +8,20 @@ import { UsuarioService } from 'src/app/Servicio/Usuario/usuario.service';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-
+  link: any = "";
   constructor(private _usu:UsuarioService, private ruta: Router) { }
   public Usuarios:any = [];  
   public usu: any ="";
   ngOnInit(): void {
    this.usu = sessionStorage.getItem("Usuario");
-   this.BuscarUsuarios(this.usu);
+   this.link= sessionStorage.getItem("Link");
+   this.BuscarUsuarios(this.usu,this.link);
+  
+   
   }
 
-  public BuscarUsuarios(usuari:String){
-    this._usu.BuscarUsuario(`http://localhost:8080/usuario/${usuari}`).subscribe(
+  public BuscarUsuarios(usuari:String,link:string){
+    this._usu.BuscarUsuario(`${link}usuario/${usuari}`).subscribe(
       data => {
         this.Usuarios=data;
       },)

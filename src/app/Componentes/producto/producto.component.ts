@@ -14,6 +14,7 @@ export class ProductoComponent implements OnInit {
   public listaCategoria:any = [];
   public listaProductosCarrito:any = [];
   nombreSucursal:any = ''; 
+  link: any = "";
   carrito:CarritoDetalle = new CarritoDetalle();
   usuarios: any = "";
   nombre:String="";
@@ -21,28 +22,28 @@ export class ProductoComponent implements OnInit {
   constructor(private route:ActivatedRoute, private productoService: ProductosService) { }
 
   ngOnInit(): void {
+    this.link= sessionStorage.getItem("Link");
     this.route.paramMap.subscribe((paramsMAP:any) => { 
       const {params} = paramsMAP;
       this.nombreSucursal=params.nombreClave;
-      this.cargarListaSucursales(params.nombreClave)
+      this.cargarListaSucursales(params.nombreClave ,this.link)
     });
-   this.cargarCategorias();
+   this.cargarCategorias(this.link);
    this.usuarios = sessionStorage.getItem("Usuario");
   }
 
-  public cargarListaSucursales(nombre:String){
-    this.productoService.ListaProductos(`http://localhost:8080/producto/${nombre}`).subscribe(
+  public cargarListaSucursales(nombre:String,link:string){
+    this.productoService.ListaProductos(`${link}producto/${nombre}`).subscribe(
       data => {
         this.lisProductos=data;
   
       },)
   }
 
-  public cargarCategorias() {
-    this.productoService.ListaCategorias(`http://localhost:8080/categoria`).subscribe(
+  public cargarCategorias(link:string) {
+    this.productoService.ListaCategorias(`${link}categoria`).subscribe(
       data => {
         this.listaCategoria = data;
-
       })
   }
 
@@ -51,7 +52,7 @@ export class ProductoComponent implements OnInit {
     this.carrito.usuario=this.usuarios;
     this.carrito.nombreProductoSucursal=Producto.producto.nombre;
     this.carrito.sucursal=Producto.sucursal.nombreClave
-    this.productoService.agregarCarrito(this.carrito).subscribe(
+    this.productoService.agregarCarrito(this.carrito ,this.link).subscribe(
       data => {
         alert("Producto Agregado al Carrito")
       }, error => alert("Datos para el pago mal ingresados"))

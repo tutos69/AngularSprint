@@ -9,19 +9,23 @@ import { LoginService } from 'src/app/Servicio/Login/login.service';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-
+  link: any = "";
   user: Usuario = new Usuario();
  
   constructor(private usuarioService: LoginService, private ruta: Router) { }
 
   ngOnInit(): void {
+   
+    this.link = "http://localhost:8080/";
+    sessionStorage.setItem("Link",this.link);
   }
 
 
   usuarioIniciar() {
     console.log(this.user)
-    this.usuarioService.login(this.user).subscribe(
+    this.usuarioService.login(this.user,this.link).subscribe(
       data => {
+        
         sessionStorage.setItem("Usuario",this.user.usuario);
         alert("Bienvenido")
         

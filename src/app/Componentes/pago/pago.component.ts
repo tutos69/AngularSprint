@@ -15,11 +15,13 @@ export class PagoComponent implements OnInit {
   ]
   tiposPago: String = '';
   usuarios: any = "";
+  link: any = "";
   pagos: Pago = new Pago();
   constructor(private pago: PagoService) { }
 
   ngOnInit(): void {
     this.usuarios = sessionStorage.getItem("Usuario");
+    this.link= sessionStorage.getItem("Link");
   }
 
 
@@ -27,7 +29,7 @@ export class PagoComponent implements OnInit {
     this.pagos.tipoPago = this.tiposPago;
     this.pagos.vuelto = 0;
     this.pagos.usuario = this.usuarios;
-      this.pago.crearPago(this.pagos).subscribe(
+      this.pago.crearPago(this.pagos,this.link).subscribe(
         data => {
           alert("Pago creado")
         }, error => alert("Datos para el pago mal ingresados"))

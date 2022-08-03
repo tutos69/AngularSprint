@@ -7,7 +7,7 @@ import { UsuarioComponent } from './Componentes/Login/usuario.component';
 import { RegistrarseComponent } from './Componentes/registrarse/registrarse.component';
 import { SharedModule } from './Modulos/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { Error404Component } from './Componentes/error404/error404.component';
 
 
 
@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     UsuarioComponent,
     RegistrarseComponent,
+    Error404Component,
     
     
   ],

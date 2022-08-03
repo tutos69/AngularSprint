@@ -15,13 +15,14 @@ export class ListaPagosComponent implements OnInit {
   public usu: any ="";
   public lon: any ="";
   public lat: any ="";
+  link: any = "";
   ngOnInit(): void {
     this.usu = sessionStorage.getItem("Usuario");
-    
-    this.pagosLista(this.usu);
+    this.link= sessionStorage.getItem("Link");
+    this.pagosLista(this.usu,this.link);
   }
-  public pagosLista(usuario: string){
-    this.listPago.ListaPago(`http://localhost:8080/formasDePago/${usuario}`).subscribe(
+  public pagosLista(usuario: string,link:string){
+    this.listPago.ListaPago(`${link}formasDePago/${usuario}`).subscribe(
       data => {
         this.listaPagos = data;
         
@@ -36,14 +37,15 @@ export class ListaPagosComponent implements OnInit {
     this.usu = sessionStorage.getItem("Usuario");
     this.lat = localStorage.getItem("Latitude");
     this.lon = localStorage.getItem("Logitud");
+    this.link= sessionStorage.getItem("Link");
     console.log(this.lat) 
-    this.envirarPedido(this.usu,this.lon,this.lat);
+    this.envirarPedido(this.usu,this.lon,this.lat ,this.link);
   }
 
  
 
-  public envirarPedido(usuario: string,long:number,lat:number){
-    this.listPago.ListaPago(`http://localhost:8080/pedido/enviar/${usuario}/${long}/${lat}`).subscribe(
+  public envirarPedido(usuario: string,long:number,lat:number,link:string){
+    this.listPago.ListaPago(`${link}pedido/enviar/${usuario}/${long}/${lat}`).subscribe(
       data => {
       
         this.ruta.navigate(['FS/pedido'])

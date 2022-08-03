@@ -15,31 +15,34 @@ export class ListaProductoComponent implements OnInit {
   nombreSucursal:any = [];
   carrito:CarritoDetalle = new CarritoDetalle();
   usuarios: any = "";
+  link: any = "";
 
   constructor(private route:ActivatedRoute, private listCatProd:ListaProductosService) { }
 
   ngOnInit(): void {
-    this.cargarCategorias();
+   
+    this.link= sessionStorage.getItem("Link");
+    this.cargarCategorias(this.link);
     this.route.paramMap.subscribe((paramsMAP:any) => { 
       const {params} = paramsMAP;
       this.nombreSucursal=params.nombreClave;
-      this.cargarProductoCategoria(params.nombreClave,params.nombre);
+      this.cargarProductoCategoria(params.nombreClave,params.nombre,this.link);
       this.usuarios = sessionStorage.getItem("Usuario");
     });
   
 
   }
 
-  public cargarProductoCategoria(sucursal:String,nombre:String) {
-    this.listCatProd.ListaProductosCategorias(`http://localhost:8080/producto/categoria/${sucursal}/${nombre}`).subscribe(
+  public cargarProductoCategoria(sucursal:String,nombre:String,link:string) {
+    this.listCatProd.ListaProductosCategorias(`${link}producto/categoria/${sucursal}/${nombre}`).subscribe(
       data => {
         this.categoriaProductos = data;
 
       },error => alert("fsdfs"))
   }
 
-  public cargarCategorias() {
-    this.listCatProd.ListaCategorias(`http://localhost:8080/categoria`).subscribe(
+  public cargarCategorias(link:string) {
+    this.listCatProd.ListaCategorias(`${link}categoria`).subscribe(
       data => {
         this.listaCategoria = data;
 
@@ -51,7 +54,8 @@ export class ListaProductoComponent implements OnInit {
     this.carrito.usuario=this.usuarios;
     this.carrito.nombreProductoSucursal=Producto.producto.nombre;
     this.carrito.sucursal=Producto.sucursal.nombreClave
-    this.listCatProd.agregarCarrito(this.carrito).subscribe(
+    this.link= sessionStorage.getItem("Link");
+    this.listCatProd.agregarCarrito(this.carrito,this.link).subscribe(
       data => {
         alert("Producto Agregado al Carrito")
       }, error => alert("Datos para el pago mal ingresados"))

@@ -13,16 +13,18 @@ export class PedidoActualComponent implements OnInit {
 
   public pedidoActual:any;
   public usu: any ="";
+  link: any = "";
   cUsuario:CancelarPedido = new CancelarPedido();
   constructor(private pedidoActualService: PedidosService,private ruta: Router) { }
 
   ngOnInit(): void {
     this.usu = sessionStorage.getItem("Usuario");
-    this.pedidoActuals( this.usu)
+    this.link= sessionStorage.getItem("Link");
+    this.pedidoActuals( this.usu,this.link)
   }
 
-  public pedidoActuals(usu:String) {
-    this.pedidoActualService.listPedidosActual(`http://localhost:8080/pedido/listarPedidoActual/${usu}`).subscribe(
+  public pedidoActuals(usu:String,link:string) {
+    this.pedidoActualService.listPedidosActual(`${link}pedido/listarPedidoActual/${usu}`).subscribe(
       data => {
         this.pedidoActual = data;
        
@@ -32,12 +34,13 @@ export class PedidoActualComponent implements OnInit {
 
 public Cancelar(){
   this.usu = sessionStorage.getItem("Usuario");
+  this.link= sessionStorage.getItem("Link");
   this.cUsuario.usuario=this.usu;
-  this.CancelarPedido(this.cUsuario)  
+  this.CancelarPedido(this.cUsuario,this.link)  
 }
 
-  public CancelarPedido(usuario:CancelarPedido) {
-    this.pedidoActualService.cancelarPedido(`http://localhost:8080/Producto/CancelarPedido/`,usuario).subscribe(
+  public CancelarPedido(usuario:CancelarPedido,link:string) {
+    this.pedidoActualService.cancelarPedido(`${link}Producto/CancelarPedido/`,usuario).subscribe(
       data => {
         alert("Pedido Cancelado")
         this.ruta.navigate(['FS']);

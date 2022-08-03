@@ -10,8 +10,8 @@ export class PagoService {
 
   constructor(private httpClient: HttpClient) { }
   
-  crearPago(pagos:Pago):Observable<object>{
-    return this.httpClient.post("http://localhost:8080/formaPago/create1",pagos);
+  crearPago(pagos:Pago,link:string): Observable<object>{
+    return this.httpClient.post(link+"formaPago/create1",pagos);
   }
   
 }

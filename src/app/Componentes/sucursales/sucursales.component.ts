@@ -12,14 +12,15 @@ export class SucursalesComponent implements OnInit {
 
   public lisSucursales:any = [];  
   constructor(private _sucursalesService: SucursalesService) { }
-
+  link: any = "";
   ngOnInit(): void {
-    this.cargarListaSucursales();
+    this.link= sessionStorage.getItem("Link");
+    this.cargarListaSucursales(this.link);
     
   }
 
-  public cargarListaSucursales(){
-    this._sucursalesService.listSucursales("http://localhost:8080/sucursales").subscribe(
+  public cargarListaSucursales(link:string){
+    this._sucursalesService.listSucursales(link+"sucursales").subscribe(
       data => {
         this.lisSucursales=data;
       },)
