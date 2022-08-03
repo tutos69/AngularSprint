@@ -1,4 +1,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/rkpvfpzd/public_html/
-    - /bin/rsync -av AngualarSprint/ $DEPLOYPATH
+    - /bin/rsync -av src/ $DEPLOYPATH
