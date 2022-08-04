@@ -1,4 +1,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/rkpvfpzd/public_html/
-    - /bin/rsync -av src/ $DEPLOYPATH
+    - ng build --prod
+    - /bin/rsync -av dis/angualar-sprint/ $DEPLOYPATH
