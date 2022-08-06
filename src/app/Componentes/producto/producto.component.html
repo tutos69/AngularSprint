@@ -3,7 +3,7 @@
   <div class="col col-md-2">
     <div class="list-group">
       <h3 class="text-center"> Categorias </h3>
-      <a href="/FS/products/{{nombreSucursal}}/{{category.nombre}}" *ngFor="let category of listaCategoria"
+      <a routerLink="/FS/products/{{nombreSucursal}}/{{category.nombre}}" *ngFor="let category of listaCategoria"
         class="list-group-item list-group-item-action">{{category.nombre}}</a>
     </div>
   </div>
