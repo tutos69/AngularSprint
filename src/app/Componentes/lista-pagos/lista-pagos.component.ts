@@ -49,7 +49,7 @@ export class ListaPagosComponent implements OnInit {
       data => {
       
         this.ruta.navigate(['FS/pedido'])
-      },error=>alert("No Vale"))
+      },error=>alert("Pedido Creado"))
    
   }
 }
