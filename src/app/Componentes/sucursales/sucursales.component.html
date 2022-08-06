@@ -7,7 +7,7 @@
         <div class="card" *ngFor="let sucursal of lisSucursales" style="width:30rem;">
 
             <div class="card-body">
-                <a routerLink="/sucursales/{{sucursal.nombreClave}}" class="list-group-item list-group-item-action">
+                <a routerLink="FS/sucursales/{{sucursal.nombreClave}}" class="list-group-item list-group-item-action">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1"> Nombre: {{sucursal.nombreClave}}</h5>
                         <small class="text-muted">Telefono: {{sucursal.telefono}}</small>
